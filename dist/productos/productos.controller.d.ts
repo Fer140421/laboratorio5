@@ -1,33 +1,33 @@
 import { ProductosService } from './productos.service';
-import { ActualizarProductoDto } from './DTO/ActualizarProductoDto';
-import { CrearProductoDto } from './DTO/CrearProductoDto';
+import { updateProduct } from './DTO/ActualizarProductoDto';
+import { CreateProduct } from './DTO/CrearProductoDto';
 export declare class ProductosController {
     private readonly productosService;
     constructor(productosService: ProductosService);
     getAllProductos(): {
-        id: number;
+        Cod: number;
         nombre: string;
         categoria: string;
         año: string;
         precio: number;
         gama: string;
     }[];
-    getProductosById(id: String): {
-        id: number;
+    getProductosById(Cod: String): {
+        Cod: number;
         nombre: string;
         categoria: string;
         año: string;
         precio: number;
         gama: string;
     };
-    crearProducto(crearDto: CrearProductoDto): void;
-    actualizarProducto(id: String, updateDto: ActualizarProductoDto): {
-        id: number;
+    crearProducto(crearDto: CreateProduct): void;
+    actualizarProducto(Cod: String, updateDto: updateProduct): {
+        Cod: number;
         nombre: string;
         categoria: string;
         año: string;
         precio: number;
         gama: string;
     };
-    eliminarProducto(id: String): void;
+    eliminarProducto(Cod: String): void;
 }

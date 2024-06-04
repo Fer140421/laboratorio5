@@ -24,17 +24,17 @@ let ProductosController = class ProductosController {
     getAllProductos() {
         return this.productosService.GetAll();
     }
-    getProductosById(id) {
-        return this.productosService.GetAllId(+id);
+    getProductosById(Cod) {
+        return this.productosService.GetAllId(+Cod);
     }
     crearProducto(crearDto) {
         return this.productosService.create(crearDto);
     }
-    actualizarProducto(id, updateDto) {
-        return this.productosService.update(+id, updateDto);
+    actualizarProducto(Cod, updateDto) {
+        return this.productosService.update(+Cod, updateDto);
     }
-    eliminarProducto(id) {
-        return this.productosService.delete(+id);
+    eliminarProducto(Cod) {
+        return this.productosService.delete(+Cod);
     }
 };
 exports.ProductosController = ProductosController;
@@ -45,8 +45,8 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ProductosController.prototype, "getAllProductos", null);
 __decorate([
-    (0, common_1.Get)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Get)(":Cod"),
+    __param(0, (0, common_1.Param)("Cod")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
@@ -55,21 +55,21 @@ __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [CrearProductoDto_1.CrearProductoDto]),
+    __metadata("design:paramtypes", [CrearProductoDto_1.CreateProduct]),
     __metadata("design:returntype", void 0)
 ], ProductosController.prototype, "crearProducto", null);
 __decorate([
-    (0, common_1.Patch)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Patch)(":Cod"),
+    __param(0, (0, common_1.Param)("Cod")),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String,
-        ActualizarProductoDto_1.ActualizarProductoDto]),
+        ActualizarProductoDto_1.updateProduct]),
     __metadata("design:returntype", void 0)
 ], ProductosController.prototype, "actualizarProducto", null);
 __decorate([
-    (0, common_1.Delete)(":id"),
-    __param(0, (0, common_1.Param)("id")),
+    (0, common_1.Delete)(":Cod"),
+    __param(0, (0, common_1.Param)("Cod")),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)

@@ -11,23 +11,23 @@ const common_1 = require("@nestjs/common");
 let ProductosService = class ProductosService {
     constructor() {
         this.Productos = [
-            { id: 1, nombre: 'galaxy s22 Ultra', categoria: 'Telefonos', año: '2024', precio: 1000, gama: 'alta' },
-            { id: 2, nombre: 'Xiaomi 13', categoria: 'Telefonos', año: '2023', precio: 300, gama: 'media' },
-            { id: 3, nombre: 'readmi note', categoria: 'Telefonos', año: '2020', precio: 150, gama: 'bajo' },
+            { Cod: 111, nombre: 'Honor magic 5 lite', categoria: 'Celulares', año: '2021', precio: 1800, gama: 'alta' },
+            { Cod: 222, nombre: 'Iphone 15', categoria: 'Celulares', año: '2022', precio: 9000, gama: 'alta' },
+            { Cod: 333, nombre: 'Samsung s30', categoria: 'Celulares', año: '2022', precio: 9000, gama: 'alta' },
         ];
     }
     GetAll() {
         return this.Productos;
     }
-    GetAllId(id) {
-        const prod = this.Productos.find(p => p.id === id);
+    GetAllId(Cod) {
+        const prod = this.Productos.find(p => p.Cod === Cod);
         if (!prod)
-            throw new common_1.NotFoundException(`Producto con el id '${id}' no encontrado`);
+            throw new common_1.NotFoundException(`Producto con el id '${Cod}' no encontrado`);
         return prod;
     }
     create(nuevo) {
         const New = {
-            id: this.Productos.length + 1,
+            Cod: this.Productos.length + 1,
             nombre: nuevo.nombre,
             categoria: nuevo.categoria,
             año: nuevo.año,
@@ -36,16 +36,16 @@ let ProductosService = class ProductosService {
         };
         this.Productos.push(New);
     }
-    delete(id) {
-        let prod = this.GetAllId(id);
+    delete(Cod) {
+        let prod = this.GetAllId(Cod);
         if (prod) {
-            this.Productos = this.Productos.filter(pp => pp.id !== id);
+            this.Productos = this.Productos.filter(pp => pp.Cod !== Cod);
         }
     }
-    update(id, prodActualizar) {
-        let prod = this.GetAllId(id);
+    update(Cod, prodActualizar) {
+        let prod = this.GetAllId(Cod);
         this.Productos = this.Productos.map(p => {
-            if (p.id === id) {
+            if (p.Cod === Cod) {
                 prod.nombre = prodActualizar.nombre;
                 prod.categoria = prodActualizar.categoria;
                 prod.año = prodActualizar.año;

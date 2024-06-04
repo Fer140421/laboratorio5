@@ -1,6 +1,6 @@
-export class ActualizarProductoDto{
+export class updateProduct{
     
-    readonly id:number;
+    readonly Cod:number;
 
     readonly nombre:string;
 

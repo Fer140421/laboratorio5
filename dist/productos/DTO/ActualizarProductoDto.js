@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ActualizarProductoDto = void 0;
-class ActualizarProductoDto {
+exports.updateProduct = void 0;
+class updateProduct {
 }
-exports.ActualizarProductoDto = ActualizarProductoDto;
+exports.updateProduct = updateProduct;
 //# sourceMappingURL=ActualizarProductoDto.js.map

@@ -1,4 +1,4 @@
-export declare class CrearProductoDto {
+export declare class CreateProduct {
     nombre: string;
     categoria: string;
     año: string;

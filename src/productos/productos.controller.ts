@@ -1,7 +1,7 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { ProductosService } from './productos.service';
-import { ActualizarProductoDto } from './DTO/ActualizarProductoDto';
-import { CrearProductoDto } from './DTO/CrearProductoDto';
+import { updateProduct } from './DTO/ActualizarProductoDto';
+import { CreateProduct } from './DTO/CrearProductoDto';
 
 @Controller('productos')
 export class ProductosController {
@@ -18,27 +18,27 @@ export class ProductosController {
         return this.productosService.GetAll();
     }
 
-    @Get(":id")
-    getProductosById(@Param("id") id:String){
+    @Get(":Cod")
+    getProductosById(@Param("Cod") Cod:String){
         // return this.productos[+id];
-        return this.productosService.GetAllId(+id);
+        return this.productosService.GetAllId(+Cod);
     }
 
     @Post()
-    crearProducto(@Body() crearDto:CrearProductoDto){
+    crearProducto(@Body() crearDto:CreateProduct){
         return this.productosService.create(crearDto);
 
     }
-    @Patch(":id")
+    @Patch(":Cod")
     actualizarProducto(
-        @Param("id") id:String,
-        @Body() updateDto:ActualizarProductoDto){
-        return this.productosService.update(+id,updateDto);
+        @Param("Cod") Cod:String,
+        @Body() updateDto:updateProduct){
+        return this.productosService.update(+Cod,updateDto);
     }
 
-    @Delete(":id")
-    eliminarProducto(@Param("id") id:String){
-        return this.productosService.delete(+id);
+    @Delete(":Cod")
+    eliminarProducto(@Param("Cod") Cod:String){
+        return this.productosService.delete(+Cod);
     }
 
 }
